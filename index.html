@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/17/leetcode刷题3/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2019/06/17/leetcode刷题3/" itemprop="url">字符串 两数相加</a></h1>
         
 
         <div class="post-meta">
@@ -300,9 +300,7 @@
       
         
           
-            <h1 id="字符串-两数相加"><a href="#字符串-两数相加" class="headerlink" title="字符串 两数相加"></a>字符串 两数相加</h1><p>标签（空格分隔）： leetcode刷题</p>
-<hr>
-<p>##<center>两数相加</center></p>
+            <p>##<center>两数相加</center></p>
 <p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。<br>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。<br>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。<br>示例：<br>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addTwoNumbers</span><span class="params">(self, l1: ListNode, l2: ListNode)</span> -&gt; ListNode:</span></span><br><span class="line">        result = ListNode(<span class="number">0</span>)</span><br><span class="line">        r = result</span><br><span class="line">        carry = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span>(l1 <span class="keyword">or</span> l2 <span class="keyword">or</span> carry!=<span class="number">0</span>):</span><br><span class="line">            a = l1.val <span class="keyword">if</span> l1 <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">            b = l2.val <span class="keyword">if</span> l2 <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">            aplusb = (a + b + carry)%<span class="number">10</span></span><br><span class="line">            carry = (a+b + carry )//<span class="number">10</span></span><br><span class="line">            r.next = ListNode(aplusb)</span><br><span class="line">            r = r.next</span><br><span class="line">            print(aplusb)</span><br><span class="line">            l1 = l1.next <span class="keyword">if</span> l1 <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">            l2 = l2.next <span class="keyword">if</span> l2 <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">            <span class="keyword">if</span>(l1 <span class="keyword">or</span> l2 <span class="keyword">or</span> carry):</span><br><span class="line">                print(<span class="string">" -&gt; "</span>)</span><br><span class="line">        result = result.next</span><br><span class="line">        <span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
 
@@ -400,7 +398,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/17/leetcode刷题2/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2019/06/17/leetcode刷题2/" itemprop="url">最长回文串</a></h1>
         
 
         <div class="post-meta">
@@ -452,9 +450,7 @@
       
         
           
-            <h1 id="最长回文串"><a href="#最长回文串" class="headerlink" title="最长回文串"></a>最长回文串</h1><p>标签（空格分隔）： leetcode刷题</p>
-<hr>
-<p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</p>
+            <p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</p>
 <p>示例 1：</p>
 <p>输入: “babad”<br>输出: “bab”<br>注意: “aba” 也是一个有效答案。<br>示例 2：</p>
 <p>输入: “cbbd”<br>输出: “bb”</p>
@@ -543,7 +539,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/17/leetcode刷题1/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2019/06/17/leetcode刷题1/" itemprop="url">一列数中找所有 三个数和为0 的组合</a></h1>
         
 
         <div class="post-meta">
@@ -595,10 +591,7 @@
       
         
           
-            <p>title:一列数中找所有 三个数和为0 的组合</p>
-<p>标签（空格分隔）： leetcode刷题</p>
-<hr>
-<p>很多前端都觉得算法是特别高大上的东西，但其实和人工智能这种硬核（虽然调参也不怎么硬核）的东西不同，算法可能会复杂，也可能很容易理解。</p>
+            <p>很多前端都觉得算法是特别高大上的东西，但其实和人工智能这种硬核（虽然调参也不怎么硬核）的东西不同，算法可能会复杂，也可能很容易理解。</p>
 <p>比如这道题就是一个非常经典的题目，很多公司的面试都会聊这道题。</p>
 <p>这道 medium 难度的问题，很适合展示一个有着丰富生活经验的程序员，如何在不需要算法基础的情况下，凭借人类的聪明才智，找到解决方案。</p>
 <p>热身<br>首先，先找一下它的简化版 2sum 来热热身。</p>
@@ -864,6 +857,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>

@@ -300,10 +300,7 @@
       
         
           
-            <p>很多前端都觉得算法是特别高大上的东西，但其实和人工智能这种硬核（虽然调参也不怎么硬核）的东西不同，算法可能会复杂，也可能很容易理解。</p>
-<p>比如这道题就是一个非常经典的题目，很多公司的面试都会聊这道题。</p>
-<p>这道 medium 难度的问题，很适合展示一个有着丰富生活经验的程序员，如何在不需要算法基础的情况下，凭借人类的聪明才智，找到解决方案。</p>
-<h4 id="热身"><a href="#热身" class="headerlink" title="热身"></a>热身</h4><p>首先，先找一下它的简化版 2sum 来热热身。</p>
+            <h4 id="热身"><a href="#热身" class="headerlink" title="热身"></a>热身</h4><p>首先，先找一下它的简化版 2sum 来热热身。</p>
 <p>最简单的想法就是把每两个都拿出来加一下，看看结果是不是我们想要的。但是直觉告诉我们，这样子并不高效。举一个很实际的例子就能明白。</p>
 <p>比如这个周末你去参加线下相亲会，全场有且只有两个人才是真爱。于是我们每个人都要去找其他所有人聊天，去寻找 ta 是不是自己要找的另一半。每个人都要和每个人说话，这样时间复杂度很高，翻译成计算机的表示就是 O(n2)。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums - <span class="number">1</span>; i++) &#123; <span class="comment">// 每个人</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; nums; j++) &#123; <span class="comment">// 都去问其他的人</span></span><br><span class="line">      <span class="keyword">if</span> (nums[i]+nums[j] === target) &#123;</span><br><span class="line">        <span class="keyword">return</span> [nums[i], nums[j]]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

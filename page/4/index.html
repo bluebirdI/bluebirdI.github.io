@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/leetcode刷题2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/hexo_Markdown学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yaokun Li">
@@ -268,7 +268,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/17/leetcode刷题2/" itemprop="url">最长回文串</a></h1>
+                <a class="post-title-link" href="/2019/06/18/hexo_Markdown学习/" itemprop="url">hexo Markdown学习</a></h1>
         
 
         <div class="post-meta">
@@ -280,8 +280,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-17T19:47:16+08:00">
-                2019-06-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T21:57:26+08:00">
+                2019-06-18
               </time>
             
 
@@ -303,8 +303,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -314,8 +314,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode刷题/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode刷题</span>
+                  <a href="/categories/Markdown/" itemprop="url" rel="index">
+                    <span itemprop="name">Markdown</span>
                   </a>
                 </span>
 
@@ -353,26 +353,18 @@
       
         
           
-            <p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</p>
-<p>示例 1：</p>
-<p>输入: “babad”<br>输出: “bab”<br>注意: “aba” 也是一个有效答案。<br>示例 2：</p>
-<p>输入: “cbbd”<br>输出: “bb”</p>
-<h4 id="官方题解："><a href="#官方题解：" class="headerlink" title="官方题解："></a>官方题解：</h4><p><img src="http://static.zybuluo.com/lyouiakn/cdfaboyntp8v61qmiuxyzqu6/zic.png" alt="zic.png-68.3kB"></p>
-<p><img src="http://static.zybuluo.com/lyouiakn/jbxj40x0gclcbflvrw2uuzgz/TIM%E6%88%AA%E5%9B%BE20190519125415.png" alt="TIM截图20190519125415.png-22kB"></p>
-<p><img src="http://static.zybuluo.com/lyouiakn/nxqravliyqx7n4fclb42fkt4/TIM%E6%88%AA%E5%9B%BE20190519125427.png" alt="TIM截图20190519125427.png-51.3kB"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment">#         动态规划</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span><span class="params">(self, s: str)</span> -&gt; str:</span></span><br><span class="line">        strlen = len(s)</span><br><span class="line">        <span class="keyword">if</span> strlen==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">        <span class="keyword">elif</span> strlen == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> s</span><br><span class="line">        dp = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,strlen):</span><br><span class="line">            dp.append([<span class="number">0</span>]*strlen)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,strlen):</span><br><span class="line">            dp[i][i] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,strlen):</span><br><span class="line">            dp[i][i<span class="number">-1</span>] = (s[i]==s[i<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,strlen):</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,j<span class="number">-1</span>):</span><br><span class="line">                dp[j][i] = (dp[j<span class="number">-1</span>][i+<span class="number">1</span>] <span class="keyword">and</span> s[i]==s[j])</span><br><span class="line">        <span class="comment"># print(dp)</span></span><br><span class="line">        i,j = self.findij(dp,strlen)</span><br><span class="line">        <span class="keyword">return</span> s[i:j+<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findij</span><span class="params">(self,table,strlen)</span>:</span></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(strlen - <span class="number">1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">            count = count + <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, count):</span><br><span class="line">                <span class="keyword">if</span> table[j + i][i] == <span class="number">1</span>:</span><br><span class="line">                    <span class="keyword">return</span>  i,j+i</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>,<span class="number">0</span></span><br><span class="line"></span><br><span class="line">sol = Solution()</span><br><span class="line">result = sol.longestPalindrome(<span class="string">"abadd"</span>)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+            <h4 id="markdown软件：CMDmarkdown-Typora"><a href="#markdown软件：CMDmarkdown-Typora" class="headerlink" title="markdown软件：CMDmarkdown Typora"></a>markdown软件：CMDmarkdown Typora</h4><p>markdown语法：</p>
+<p><a href="https://connorlin.github.io/2016/05/06/Markdown的常用语法(个人总结)/" target="_blank" rel="noopener">https://connorlin.github.io/2016/05/06/Markdown%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95(%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93)/</a></p>
+<h4 id="hexo博客搭建学习："><a href="#hexo博客搭建学习：" class="headerlink" title="hexo博客搭建学习："></a>hexo博客搭建学习：</h4><p>hexo简单的教材 但是讲的不好（不推荐学习）</p>
+<p><a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/writing</a></p>
+<p>hexo标签和分类:</p>
+<p><a href="https://hexo.io/zh-cn/docs/front-matter" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/front-matter</a></p>
+<p>如果有多个tag 或者多个categories 语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tags: [a, b]</span><br><span class="line"></span><br><span class="line">categories :</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>[a]</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>[b]</span><br></pre></td></tr></table></figure>
 
-<h4 id="最长回文子序列"><a href="#最长回文子序列" class="headerlink" title="最长回文子序列"></a>最长回文子序列</h4><p>给定一个字符串s，找到其中最长的回文子序列。可以假设s的最大长度为1000。</p>
-<p>示例 1:<br>输入:</p>
-<p>“bbbab”<br>输出:</p>
-<p>4
-一个可能的最长回文子序列为 “bbbb”。</p>
-<p>示例 2:<br>输入:</p>
-<p>“cbbd”<br>输出:</p>
-<p>2
-一个可能的最长回文子序列为 “bb”。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestPalindromeSubseq</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(n,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            dp[i][i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(s[i]==s[j]) dp[i][j] = dp[i+<span class="number">1</span>][j<span class="number">-1</span>] + <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j] = max(dp[i+<span class="number">1</span>][j],dp[i][j<span class="number">-1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+<p>这样就可以有并列的categories或者tags了</p>
+<h5 id="hexo-主题"><a href="#hexo-主题" class="headerlink" title="hexo 主题"></a>hexo 主题</h5><p>如何在next主题中开启tag categories：</p>
+<p><a href="https://github.com/iissnan/hexo-theme-next/wiki/创建分类页面" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next/wiki/%E5%88%9B%E5%BB%BA%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2</a></p>
 
           
         
@@ -412,7 +404,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -458,7 +450,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

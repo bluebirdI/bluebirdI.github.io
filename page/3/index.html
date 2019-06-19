@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/leetcode-2019-6-19-等式方程的可满足性/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/hexo_Markdown学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yaokun Li">
@@ -268,7 +268,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/19/leetcode-2019-6-19-等式方程的可满足性/" itemprop="url">等式方程的可满足性</a></h1>
+                <a class="post-title-link" href="/2019/06/18/hexo_Markdown学习/" itemprop="url">hexo Markdown学习</a></h1>
         
 
         <div class="post-meta">
@@ -280,8 +280,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-19T10:32:23+08:00">
-                2019-06-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T21:57:26+08:00">
+                2019-06-18
               </time>
             
 
@@ -303,8 +303,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -314,8 +314,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode刷题/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode刷题</span>
+                  <a href="/categories/Markdown/" itemprop="url" rel="index">
+                    <span itemprop="name">Markdown</span>
                   </a>
                 </span>
 
@@ -353,34 +353,18 @@
       
         
           
-            <p>作者：LeetCode<br>链接：<a href="https://leetcode-cn.com/problems/two-sum/solution/deng-shi-fang-cheng-de-ke-man-zu-xing-by-leetcode/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/two-sum/solution/deng-shi-fang-cheng-de-ke-man-zu-xing-by-leetcode/</a></p>
-<p>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h4 id="题目：等式方程的可满足性"><a href="#题目：等式方程的可满足性" class="headerlink" title="题目：等式方程的可满足性"></a>题目：等式方程的可满足性</h4><p>给定一个由表示变量之间关系的字符串方程组成的数组，每个字符串方程 equations[i] 的长度为 4，并采用两种不同的形式之一：”a==b” 或 “a!=b”。在这里，a 和 b 是小写字母（不一定不同），表示单字母变量名。</p>
-<p>只有当可以将整数分配给变量名，以便满足所有给定的方程时才返回 true，否则返回 false。 </p>
-<p>示例 1：</p>
-<p>输入：[“a==b”,”b!=a”]<br>输出：false<br>解释：如果我们指定，a = 1 且 b = 1，那么可以满足第一个方程，但无法满足第二个方程。没有办法分配变量同时满足这两个方程。<br>示例 2：</p>
-<p>输出：[“b==a”,”a==b”]<br>输入：true<br>解释：我们可以指定 a = 1 且 b = 1 以满足满足这两个方程。<br>示例 3：</p>
-<p>输入：[“a==b”,”b==c”,”a==c”]<br>输出：true<br>示例 4：</p>
-<p>输入：[“a==b”,”b!=c”,”c==a”]<br>输出：false<br>示例 5：</p>
-<p>输入：[“c==c”,”b==d”,”x!=z”]<br>输出：true</p>
-<p>提示：</p>
-<ol>
-<li>&lt;= equations.length &lt;= 500</li>
-<li>equations[i].length == 4</li>
-<li>equations[i] [0]和 equations[i] [3] 是小写字母</li>
-<li>equations[i] [1]  要么是 ‘=’，要么是 ‘!’</li>
-<li>equations[i] [2] 是 ‘=’</li>
-</ol>
-<h4 id="方法：联通分量"><a href="#方法：联通分量" class="headerlink" title="方法：联通分量"></a>方法：联通分量</h4><p>思路</p>
-<p>所有相互等于的变量能组成一个联通分量。举一个例子，如果 a=b, b=c, c=d，那么 a, b, c, d 就在同一个联通分量中，因为它们必须相等。</p>
-<p>算法</p>
-<p>第一步，我们基于给定的等式，用深度优先遍历将每一个变量按照联通分量染色。</p>
-<p>将联通分量染色之后，我们分析形如 a != b 的不等式。如果两个分量有相同的颜色，那么它们一定相等，因此如果说它们不相等的话，就一定无法满足给定的方程组。</p>
-<p>否则，我们的染色就可以看作是一组能满足方程组约束的方案，所以结果是 true。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">equationsPossible</span><span class="params">(self, equations)</span>:</span></span><br><span class="line">        graph = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> xrange(<span class="number">26</span>)]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> eqn <span class="keyword">in</span> equations:</span><br><span class="line">            <span class="keyword">if</span> eqn[<span class="number">1</span>] == <span class="string">'='</span>:</span><br><span class="line">                x = ord(eqn[<span class="number">0</span>]) - ord(<span class="string">'a'</span>)</span><br><span class="line">                y = ord(eqn[<span class="number">3</span>]) - ord(<span class="string">'a'</span>)</span><br><span class="line">                graph[x].append(y)</span><br><span class="line">                graph[y].append(x)</span><br><span class="line"></span><br><span class="line">        color = [<span class="literal">None</span>] * <span class="number">26</span></span><br><span class="line">        t = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> start <span class="keyword">in</span> xrange(<span class="number">26</span>):</span><br><span class="line">            <span class="keyword">if</span> color[start] <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                t += <span class="number">1</span></span><br><span class="line">                stack = [start]</span><br><span class="line">                <span class="keyword">while</span> stack:</span><br><span class="line">                    node = stack.pop()</span><br><span class="line">                    <span class="keyword">for</span> nei <span class="keyword">in</span> graph[node]:</span><br><span class="line">                        <span class="keyword">if</span> color[nei] <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                            color[nei] = t</span><br><span class="line">                            stack.append(nei)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> eqn <span class="keyword">in</span> equations:</span><br><span class="line">            <span class="keyword">if</span> eqn[<span class="number">1</span>] == <span class="string">'!'</span>:</span><br><span class="line">                x = ord(eqn[<span class="number">0</span>]) - ord(<span class="string">'a'</span>)</span><br><span class="line">                y = ord(eqn[<span class="number">3</span>]) - ord(<span class="string">'a'</span>)</span><br><span class="line">                <span class="keyword">if</span> x == y: <span class="keyword">return</span> <span class="literal">False</span> <span class="comment"># lee</span></span><br><span class="line">                <span class="keyword">if</span> color[x] <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> color[x] == color[y]:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+            <h4 id="markdown软件：CMDmarkdown-Typora"><a href="#markdown软件：CMDmarkdown-Typora" class="headerlink" title="markdown软件：CMDmarkdown Typora"></a>markdown软件：CMDmarkdown Typora</h4><p>markdown语法：</p>
+<p><a href="https://connorlin.github.io/2016/05/06/Markdown的常用语法(个人总结)/" target="_blank" rel="noopener">https://connorlin.github.io/2016/05/06/Markdown%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95(%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93)/</a></p>
+<h4 id="hexo博客搭建学习："><a href="#hexo博客搭建学习：" class="headerlink" title="hexo博客搭建学习："></a>hexo博客搭建学习：</h4><p>hexo简单的教材 但是讲的不好（不推荐学习）</p>
+<p><a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/writing</a></p>
+<p>hexo标签和分类:</p>
+<p><a href="https://hexo.io/zh-cn/docs/front-matter" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/front-matter</a></p>
+<p>如果有多个tag 或者多个categories 语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tags: [a, b]</span><br><span class="line"></span><br><span class="line">categories :</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>[a]</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>[b]</span><br></pre></td></tr></table></figure>
 
-<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度： O(N)O(N)，其中 NN 是方程组 equations 的数量。</p>
-<p>空间复杂度： O(1)O(1)，认为字母表的大小是 O(1)O(1) 的。</p>
+<p>这样就可以有并列的categories或者tags了</p>
+<h5 id="hexo-主题"><a href="#hexo-主题" class="headerlink" title="hexo 主题"></a>hexo 主题</h5><p>如何在next主题中开启tag categories：</p>
+<p><a href="https://github.com/iissnan/hexo-theme-next/wiki/创建分类页面" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next/wiki/%E5%88%9B%E5%BB%BA%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2</a></p>
 
           
         
@@ -420,7 +404,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -466,7 +450,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

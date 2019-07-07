@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/d1l2pxo4t1pemcvk92d1ihq1/node.png">
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/q31h2npyjusin4nr0rsta1of/edge.png">
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/p7nkm4spbrgwo7uabjrpc07r/cont.png">
-<meta property="og:updated_time" content="2019-07-07T06:56:33.336Z">
+<meta property="og:updated_time" content="2019-07-07T07:02:49.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="paper for scene graph (Scene Graph Parsing as Dependency Parsing)">
 <meta name="twitter:description" content="[TOC] dependency parserthe goal of dependency parser : assign a parent word to every word in a sentence and every such connection is associated with a label. 想要解决的问题textual descriptions -&amp;gt; scene gr">
@@ -395,7 +395,19 @@
 <p>​    </p>
 </li>
 </ol>
-<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a><strong>思考</strong></h3><p>在scene graph中，一个node中，比如relation node 有可能包含多个单词 in front of 但 dependency graph 中in front of是属于同一个node的，那我们如何解决这个问题？<br>author 增加了新的一种operation ： reduce<br>eg. black barrier in front of the person  其中the会被reduce这个操作去掉 </p>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a><strong>思考</strong></h3><ol>
+<li><p>在scene graph中，一个node中，比如relation node 有可能包含多个单词 in front of 但 dependency graph 中in front of是属于同一个node的，那我们如何解决这个问题？<br>author 增加了新的一种operation ： reduce<br>eg. black barrier in front of the person  其中the会被reduce这个操作去掉 </p>
+</li>
+<li><p>BiLSTM求transition action的顺序是如何初始化的？</p>
+<p>应该是任意初始化，通过backpropagation来调整</p>
+</li>
+<li><p>MLP 中为什么选择了tanh 来作为scoring function？</p>
+<p>需要读2016 的paper</p>
+</li>
+<li><p>Hinge Loss Function 的选择？</p>
+<p>需要读2016的paper</p>
+</li>
+</ol>
 
       
     </div>

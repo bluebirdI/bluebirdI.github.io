@@ -350,7 +350,12 @@
 <li>from textual descriptions(the methods this paper focus on)  $\qquad$  A-&gt;a-&gt;B</li>
 </ol>
 <p>从直觉上来说，第一种方法显然用途更广，因为并不是所有情况下，你都有一个description of the image.直接从A 生成B，总是要比先由A生成a 然后由a生成B要好的</p>
-<p>Schuster et al.,2015; Anderson et al.,2016<br>use a dependency parser to obtain the dependency relationship for all words in a sentence, and then use either a rule-based or a learned classifier as post-processing to generate the scene graph<br>(how ? 需要深入读他们的paper 来了解)<br>post-processing存在的问题：</p>
+<p>重点看到第二种方法：</p>
+<p>Schuster et al.,2015; Anderson et al.,2016<br>use a dependency parser to obtain the dependency relationship for all words in a sentence, and then use either a rule-based or a learned classifier as post-processing to generate the scene graph<br>(how ? 需要深入读他们的paper 来了解</p>
+<p>paper3  Generating Semantically Precise Scene Graphs from Textual Descriptions for Improved Image Retrieval 的方法：</p>
+<p>image description(textual description)  —–&gt;  dependency parser result : semantic graph —-&gt; several tree transformations result : scene graph (using rule-based parser or classifier-based parser) </p>
+<p>)
+其中post-processing（两种rule-based parser / classifier-based parser) 都存在各自的问题：</p>
 <ul>
 <li>rule-based 不能从data中学习</li>
 <li>learned classifier is rather simple with hand-engineered features</li>
@@ -375,8 +380,17 @@
 <h4 id="作者的具体的方法："><a href="#作者的具体的方法：" class="headerlink" title="作者的具体的方法："></a><strong>作者的具体的方法：</strong></h4><p>两种scene graph representation</p>
 <ol>
 <li>node-centric graph representation （传统的形式）<br><img src="http://static.zybuluo.com/lyouiakn/d1l2pxo4t1pemcvk92d1ihq1/node.png" alt="node.png-65.3kB"></li>
-<li>edge-centric graph representation  （作者的形式）<br><img src="http://static.zybuluo.com/lyouiakn/q31h2npyjusin4nr0rsta1of/edge.png" alt="edge.png-100.2kB"><br>同时作者也定义了五种edge label :<br>CONT/ATTR/SUBJ/OBJT/BEGN</li>
+<li>edge-centric graph representation  （作者的形式）<br><img src="http://static.zybuluo.com/lyouiakn/q31h2npyjusin4nr0rsta1of/edge.png" alt="edge.png-100.2kB"></li>
 </ol>
+<p>edge-centric form 跟dependency parsing 很接近，于是作者尝试用edge-centric form来生成dependency parsing，又因为dependency parsing result 和 scene graph之间很相似，只要得到了dependency parsing result 就可以确定scene graph，这就是作者的整体思路</p>
+<p>要实现上面的思路，作者碰到的第一个问题是没有合适的语料库（corpus），上面提到的dataset只有scene graph 没有dependency parsing result。作者的解决办法见上面的dataset部分</p>
+<p>有了dataset 作者的end-to-end 神经网络如下：</p>
+<ol>
+<li>The Arc-Hybrid System</li>
+<li>BiLSTM Feature Extractor</li>
+</ol>
+<p>这层BiLSTM 网络与Kiperwasser and Goldberg 2016 类似，是在上面的网络做的改进</p>
+<p>作者定义了五种edge label :  <strong>CONT/ATTR/SUBJ/OBJT/BEGN</strong></p>
 <p>•CONT: This label is created for nodes whose label is a phrase. For example, the phrase “infront of” is a single relation node in the scenegraph. By introducing the CONT label, we expect the parsing result to be either<br><img src="http://static.zybuluo.com/lyouiakn/p7nkm4spbrgwo7uabjrpc07r/cont.png" alt="cont.png-5.2kB"><br>where the direction of the arcs (left or right)is predefined by hand.<br>The leftmost word under the right arc rule orthe rightmost word under the left arc rule is called the head of the phrase.  A single-word node does not need this CONT label, and the head is itself.</p>
 <p>•ATTR: The arc label from the head of an object node to the head of an attribute node.<br>•SUBJ: The arc label from the head of an object node (subject) to the head of a relation node.<br>•OBJT: The arc label from the head of a relation node to the head of an object node (ob-ject).<br>•BEGN: The arc label from the ROOT index toall heads of object nodes without a parent</p>
 <p>这些lable 很容易就可以根据node-centric graph得到</p>

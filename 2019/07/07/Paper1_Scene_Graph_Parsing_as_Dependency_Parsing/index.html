@@ -79,23 +79,23 @@
 
 
 
-<meta name="description" content="[TOC] dependency parserthe goal of dependency parser : assign a parent word to every word in a sentence and every such connection is associated with a label. 想要解决的问题textual descriptions -&amp;gt; scene gr">
+<meta name="description" content="dependency parserthe goal of dependency parser : assign a parent word to every word in a sentence and every such connection is associated with a label. 想要解决的问题textual descriptions -&amp;gt; scene graph他们是">
 <meta name="keywords" content="scene grpah">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper for scene graph (Scene Graph Parsing as Dependency Parsing)">
 <meta property="og:url" content="http://yoursite.com/2019/07/07/Paper1_Scene_Graph_Parsing_as_Dependency_Parsing/index.html">
 <meta property="og:site_name" content="青鸟的博客">
-<meta property="og:description" content="[TOC] dependency parserthe goal of dependency parser : assign a parent word to every word in a sentence and every such connection is associated with a label. 想要解决的问题textual descriptions -&amp;gt; scene gr">
+<meta property="og:description" content="dependency parserthe goal of dependency parser : assign a parent word to every word in a sentence and every such connection is associated with a label. 想要解决的问题textual descriptions -&amp;gt; scene graph他们是">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/lmirwm9xl2no25epckhbleew/image_1df5gfl901qdk6lk1sd31cufpeq9.png">
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/5fyqxr4sgfhu1dfmj0qk6lhy/algorithm_scenegraphTodependency.png">
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/d1l2pxo4t1pemcvk92d1ihq1/node.png">
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/q31h2npyjusin4nr0rsta1of/edge.png">
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/p7nkm4spbrgwo7uabjrpc07r/cont.png">
-<meta property="og:updated_time" content="2019-07-07T07:02:49.656Z">
+<meta property="og:updated_time" content="2019-07-07T07:08:01.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="paper for scene graph (Scene Graph Parsing as Dependency Parsing)">
-<meta name="twitter:description" content="[TOC] dependency parserthe goal of dependency parser : assign a parent word to every word in a sentence and every such connection is associated with a label. 想要解决的问题textual descriptions -&amp;gt; scene gr">
+<meta name="twitter:description" content="dependency parserthe goal of dependency parser : assign a parent word to every word in a sentence and every such connection is associated with a label. 想要解决的问题textual descriptions -&amp;gt; scene graph他们是">
 <meta name="twitter:image" content="http://static.zybuluo.com/lyouiakn/lmirwm9xl2no25epckhbleew/image_1df5gfl901qdk6lk1sd31cufpeq9.png">
 
 
@@ -348,8 +348,7 @@
       
 
       
-        <p>[TOC]</p>
-<h3 id="dependency-parser"><a href="#dependency-parser" class="headerlink" title="dependency parser"></a><strong>dependency parser</strong></h3><p>the goal of dependency parser : assign a parent word to every word in a sentence and every such connection is associated with a label.</p>
+        <h3 id="dependency-parser"><a href="#dependency-parser" class="headerlink" title="dependency parser"></a><strong>dependency parser</strong></h3><p>the goal of dependency parser : assign a parent word to every word in a sentence and every such connection is associated with a label.</p>
 <h3 id="想要解决的问题"><a href="#想要解决的问题" class="headerlink" title="想要解决的问题"></a><strong>想要解决的问题</strong></h3><p>textual descriptions -&gt; scene graph<br>他们是描述图片的两种形式，但scene graph是结构化的，有很多应用，比如：image retrieval(Johnson et al. 2015), caption quality evaluation(Anderson et al. 2016)</p>
 <h3 id="previous-work-Related-works"><a href="#previous-work-Related-works" class="headerlink" title="previous work / Related works"></a><strong>previous work / Related works</strong></h3><p>学术界两种生成scene graph的方法：</p>
 <ol>
@@ -396,7 +395,8 @@
 </li>
 </ol>
 <h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a><strong>思考</strong></h3><ol>
-<li><p>在scene graph中，一个node中，比如relation node 有可能包含多个单词 in front of 但 dependency graph 中in front of是属于同一个node的，那我们如何解决这个问题？<br>author 增加了新的一种operation ： reduce<br>eg. black barrier in front of the person  其中the会被reduce这个操作去掉 </p>
+<li><p>在scene graph中，一个node中，比如relation node 有可能包含多个单词 in front of 但 dependency graph 中in front of是属于同一个node的，那我们如何解决这个问题？</p>
+<p>author 增加了新的一种operation ： reduce<br>eg. black barrier in front of the person  其中the会被reduce这个操作去掉 </p>
 </li>
 <li><p>BiLSTM求transition action的顺序是如何初始化的？</p>
 <p>应该是任意初始化，通过backpropagation来调整</p>
@@ -447,6 +447,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/08/paper2_Scene_Grpah_Parsing_by_Attention_Graph/" rel="prev" title="paper for scene graph (Scene Graph Parsing by Attention Graph)">
+                paper for scene graph (Scene Graph Parsing by Attention Graph) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -523,7 +527,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

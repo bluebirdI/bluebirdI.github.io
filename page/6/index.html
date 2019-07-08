@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/leetcode-2019-6-15-无重复字符的最长子序列/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/hexo_Markdown学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yaokun Li">
@@ -268,7 +268,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/17/leetcode-2019-6-15-无重复字符的最长子序列/" itemprop="url">无重复字符的最长子序列</a></h1>
+                <a class="post-title-link" href="/2019/06/18/hexo_Markdown学习/" itemprop="url">hexo Markdown学习</a></h1>
         
 
         <div class="post-meta">
@@ -280,8 +280,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-17T19:47:55+08:00">
-                2019-06-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T21:57:26+08:00">
+                2019-06-18
               </time>
             
 
@@ -303,8 +303,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -314,8 +314,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode刷题/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode刷题</span>
+                  <a href="/categories/Markdown/" itemprop="url" rel="index">
+                    <span itemprop="name">Markdown</span>
                   </a>
                 </span>
 
@@ -353,28 +353,18 @@
       
         
           
-            <h3 id="无重复字符的最长子序列"><a href="#无重复字符的最长子序列" class="headerlink" title="无重复字符的最长子序列"></a>无重复字符的最长子序列</h3><h4 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h4><p>转载自<a href="https://leetcode-cn.com/articles/longest-substring-without-repeating-characters/" target="_blank" rel="noopener">https://leetcode-cn.com/articles/longest-substring-without-repeating-characters/</a></p>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
-<p>示例 1:</p>
-<p>输入: “abcabcbb”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。<br>示例 2:</p>
-<p>输入: “bbbbb”<br>输出: 1<br>解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。<br>示例 3:</p>
-<p>输入: “pwwkew”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “wke”，所以其长度为 3。<br>     请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。</p>
-<p><strong>子串和子序列的区别：<br>子串是去掉任意位置的任意个字符<br>子序列是要求连续的从字符串中取出来的序列</strong></p>
-<h4 id="算法：滑动窗口"><a href="#算法：滑动窗口" class="headerlink" title="算法：滑动窗口"></a>算法：滑动窗口</h4><p>python </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(self, s: str)</span> -&gt; int:</span></span><br><span class="line">        i, j = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        record = &#123;&#125;</span><br><span class="line">        <span class="keyword">while</span> (j &lt; len(s)):</span><br><span class="line">            <span class="keyword">if</span> s[j] <span class="keyword">in</span> record:</span><br><span class="line">                i = max(record[s[j]]+<span class="number">1</span>, i )</span><br><span class="line">                ans = max(ans, j - i + <span class="number">1</span>)</span><br><span class="line">                record[s[j]] = j</span><br><span class="line">                j = j + <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                ans = max(ans, j - i + <span class="number">1</span>)</span><br><span class="line">                record[s[j]] = j</span><br><span class="line">                j = j + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+            <h4 id="markdown软件：CMDmarkdown-Typora"><a href="#markdown软件：CMDmarkdown-Typora" class="headerlink" title="markdown软件：CMDmarkdown Typora"></a>markdown软件：CMDmarkdown Typora</h4><p>markdown语法：</p>
+<p><a href="https://connorlin.github.io/2016/05/06/Markdown的常用语法(个人总结)/" target="_blank" rel="noopener">https://connorlin.github.io/2016/05/06/Markdown%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95(%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93)/</a></p>
+<h4 id="hexo博客搭建学习："><a href="#hexo博客搭建学习：" class="headerlink" title="hexo博客搭建学习："></a>hexo博客搭建学习：</h4><p>hexo简单的教材 但是讲的不好（不推荐学习）</p>
+<p><a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/writing</a></p>
+<p>hexo标签和分类:</p>
+<p><a href="https://hexo.io/zh-cn/docs/front-matter" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/front-matter</a></p>
+<p>如果有多个tag 或者多个categories 语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tags: [a, b]</span><br><span class="line"></span><br><span class="line">categories :</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>[a]</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>[b]</span><br></pre></td></tr></table></figure>
 
-<p>JAVA</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.length();</span><br><span class="line">        Set&lt;Character&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>, i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; n &amp;&amp; j &lt; n) &#123;</span><br><span class="line">            <span class="comment">// try to extend the range [i, j]</span></span><br><span class="line">            <span class="keyword">if</span> (!set.contains(s.charAt(j)))&#123;</span><br><span class="line">                set.add(s.charAt(j++));</span><br><span class="line">                ans = Math.max(ans, j - i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                set.remove(s.charAt(i++));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="类似题目"><a href="#类似题目" class="headerlink" title="类似题目"></a>类似题目</h4><h5 id="K-个不同整数的子数组"><a href="#K-个不同整数的子数组" class="headerlink" title="K 个不同整数的子数组"></a>K 个不同整数的子数组</h5><p>给定一个正整数数组 A，如果 A 的某个子数组中不同整数的个数恰好为 K，则称 A 的这个连续、不一定独立的子数组为好子数组。</p>
-<p>（例如，[1,2,3,1,2] 中有 3 个不同的整数：1，2，以及 3。）</p>
-<p>返回 A 中好子数组的数目。</p>
-<p>示例 1：</p>
-<p>输出：A = [1,2,1,2,3], K = 2<br>输入：7<br>解释：恰好由 2 个不同整数组成的子数组：[1,2], [2,1], [1,2], [2,3], [1,2,1], [2,1,2], [1,2,1,2].<br>示例 2：</p>
-<p>输入：A = [1,2,1,3,4], K = 3<br>输出：3<br>解释：恰好由 3 个不同整数组成的子数组：[1,2,1,3], [2,1,3], [1,3,4].</p>
-<p>提示：</p>
-<p>1 &lt;= A.length &lt;= 20000<br>1 &lt;= A[i] &lt;= A.length<br>1 &lt;= K &lt;= A.length</p>
-<h4 id="复习点："><a href="#复习点：" class="headerlink" title="复习点："></a>复习点：</h4><p>  无重复字符的最长子序列<br>  K个不同整数的子数组的个数<br>  最长公共子序列（DNA ）:算法ppt 08</p>
+<p>这样就可以有并列的categories或者tags了</p>
+<h5 id="hexo-主题"><a href="#hexo-主题" class="headerlink" title="hexo 主题"></a>hexo 主题</h5><p>如何在next主题中开启tag categories：</p>
+<p><a href="https://github.com/iissnan/hexo-theme-next/wiki/创建分类页面" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next/wiki/%E5%88%9B%E5%BB%BA%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2</a></p>
 
           
         
@@ -414,7 +404,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -460,7 +450,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

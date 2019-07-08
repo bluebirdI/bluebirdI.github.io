@@ -91,8 +91,10 @@
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/5fyqxr4sgfhu1dfmj0qk6lhy/algorithm_scenegraphTodependency.png">
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/d1l2pxo4t1pemcvk92d1ihq1/node.png">
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/q31h2npyjusin4nr0rsta1of/edge.png">
+<meta property="og:image" content="c:%5CUsers%5Clyoui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562586348371.png">
+<meta property="og:image" content="c:%5CUsers%5Clyoui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562586514851.png">
 <meta property="og:image" content="http://static.zybuluo.com/lyouiakn/p7nkm4spbrgwo7uabjrpc07r/cont.png">
-<meta property="og:updated_time" content="2019-07-08T11:37:22.962Z">
+<meta property="og:updated_time" content="2019-07-08T11:51:50.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="paper for scene graph (Scene Graph Parsing as Dependency Parsing)">
 <meta name="twitter:description" content="dependency parserthe goal of dependency parser : assign a parent word to every word in a sentence and every such connection is associated with a label. 想要解决的问题textual descriptions -&amp;gt; scene graph他们是">
@@ -391,21 +393,22 @@
 <p>edge-centric form 跟dependency parsing 很接近，于是作者尝试用edge-centric form来生成dependency parsing，又因为dependency parsing result 和 scene graph之间很相似，只要得到了dependency parsing result 就可以确定scene graph，这就是作者的整体思路</p>
 <p>要实现上面的思路，作者碰到的第一个问题是没有合适的语料库（corpus），上面提到的dataset只有scene graph 没有dependency parsing result。作者的解决办法见上面的dataset部分</p>
 <p>有了dataset 作者的end-to-end 神经网络如下：</p>
-<ol>
-<li>The Arc-Hybrid System</li>
-<li>BiLSTM Feature Extractor</li>
-</ol>
+<p>The Arc-Hybrid System</p>
+<p>有四种操作</p>
+<p><img src="C:%5CUsers%5Clyoui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562586348371.png" alt="1562586348371"></p>
+<p>left 会生成指向左边的边，right会生成指向右边的边，reduce用于那些在scene graph 中不出现的句子部分。作者希望神经网络能学出来parse 一句话的操作顺序。它所定义的loss function 如下：</p>
+<p><img src="C:%5CUsers%5Clyoui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562586514851.png" alt="1562586514851"></p>
+<p>BiLSTM Feature Extractor</p>
 <p>这层BiLSTM 网络与Kiperwasser and Goldberg 2016 类似，是在上面的网络做的改进</p>
+<h4 id="作者在transition-based-parser-基础上做的改动"><a href="#作者在transition-based-parser-基础上做的改动" class="headerlink" title="作者在transition-based parser 基础上做的改动"></a><strong>作者在transition-based parser 基础上做的改动</strong></h4><ol>
+<li><p>增加了Reduce operation，dependency parser result应该是每一个单词都有一个parent 但是scene graph 并不是每一个单词都会出现在graph中，所以需要增加reduce这样一个操作</p>
+</li>
+<li><p>只有五种lable</p>
 <p>作者定义了五种edge label :  <strong>CONT/ATTR/SUBJ/OBJT/BEGN</strong></p>
 <p>•CONT: This label is created for nodes whose label is a phrase. For example, the phrase “infront of” is a single relation node in the scenegraph. By introducing the CONT label, we expect the parsing result to be either<br><img src="http://static.zybuluo.com/lyouiakn/p7nkm4spbrgwo7uabjrpc07r/cont.png" alt="cont.png-5.2kB"><br>where the direction of the arcs (left or right)is predefined by hand.<br>The leftmost word under the right arc rule orthe rightmost word under the left arc rule is called the head of the phrase.  A single-word node does not need this CONT label, and the head is itself.</p>
 <p>•ATTR: The arc label from the head of an object node to the head of an attribute node.<br>•SUBJ: The arc label from the head of an object node (subject) to the head of a relation node.<br>•OBJT: The arc label from the head of a relation node to the head of an object node (ob-ject).<br>•BEGN: The arc label from the ROOT index toall heads of object nodes without a parent</p>
 <p>这些lable 很容易就可以根据node-centric graph得到</p>
 <p>作者是基于transition-based parser of Kiperwasser and Goldberg(2016)改进得到的</p>
-<h4 id="作者在transition-based-parser-基础上做的改动"><a href="#作者在transition-based-parser-基础上做的改动" class="headerlink" title="作者在transition-based parser 基础上做的改动"></a><strong>作者在transition-based parser 基础上做的改动</strong></h4><ol>
-<li><p>增加了Reduce operation</p>
-</li>
-<li><p>只有五种lable</p>
-<p>​    </p>
 </li>
 </ol>
 <h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a><strong>思考</strong></h3><ol>
